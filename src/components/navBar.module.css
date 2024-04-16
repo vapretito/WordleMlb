@@ -1,0 +1,48 @@
+/* styles.module.css */
+
+.navbar {
+    
+    background-color: #72717100; /* Color de fondo de la barra de navegación */
+    color: #fff; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    display: flex; /* Alinear elementos horizontalmente */
+    justify-content: space-between; /* Espacio entre los elementos */
+    
+  }
+  
+  .navbarBrand {
+    
+    font-size: 1.5rem; /* Tamaño del texto del logo */
+  }
+  
+  .navbarMenu {
+    
+    list-style-type: none; /* Eliminar viñetas de la lista */
+    display: flex; /* Alinear elementos horizontalmente */
+    margin: 0; /* Eliminar margen externo */
+    padding: 0; /* Eliminar espaciado interno */
+  }
+  
+  .navbarMenuMtem {
+    margin-right: 15px;
+    text-decoration: none; 
+    /* Espaciado entre elementos de la lista */
+  }
+  
+  .navbarMenuLink {
+    text-decoration: none; 
+    color: #fff; /* Color del texto del enlace */
+    transition: color 0.3s; /* Transición suave del color del texto */
+  }
+  
+  .navbarMenuLink:hover,
+  .navbarMenuLink:visited {
+    color: #ccc; /* Cambiar color del texto al pasar el mouse y después de hacer clic */
+    text-decoration: none; 
+  }
+  
+  .logo {
+    width: 150px; /* Ancho de la imagen del logo */
+    height: auto; /* Mantener la proporción de la imagen */
+  }
+  

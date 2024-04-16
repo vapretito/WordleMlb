@@ -1,0 +1,36 @@
+.present,
+.absent,
+.correct,
+.empty,
+.edit {
+    color: rgb(255, 255, 255);
+
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+    font-size: 2em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(241, 238, 238); /* Agregar borde de color negro */
+}
+
+
+.present {
+    background-color: #e5f321;
+    border: #e5f321 solid 2px;
+    color: rgb(255, 255, 255);
+}
+
+.absent {
+    background-color: rgb(123, 124, 124);
+    border: rgb(123, 124, 124) solid 2px; /* ¿Es correcto usar el color de la clase .present aquí? */
+    color: rgb(255, 255, 255);
+}
+
+.correct {
+    background-color: #4caf50;
+    border: #4caf50 solid 2px;
+    color: rgb(255, 255, 255);
+}
