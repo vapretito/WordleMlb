@@ -1,8 +1,9 @@
 .keyboardContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 570px;
-  margin: -80px auto 0 auto; /* Modificar el margen para moverlo hacia arriba */
+  width: 90%; /* Porcentaje del ancho de la ventana */
+  max-width: 570px; /* Ancho máximo para mantenerlo legible en dispositivos grandes */
+  margin: 0 auto; /* Centra el teclado horizontalmente */
   gap: 5px;
 }
 
