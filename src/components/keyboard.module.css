@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%; /* Porcentaje del ancho de la ventana */
-  max-width: 570px; /* Ancho máximo para mantenerlo legible en dispositivos grandes */
+  max-width: 510px; /* Ancho máximo para mantenerlo legible en dispositivos grandes */
   margin: 0 auto; /* Centra el teclado horizontalmente */
   gap: 5px;
 }
