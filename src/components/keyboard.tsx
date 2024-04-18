@@ -3,9 +3,10 @@ import styles from "./keyboard.module.css";
 interface KeyboardProps {
   keys: string[];
   onKeyPressed: (key: string) => void;
+  inUse?: boolean; // Agrega la propiedad inUse opcional para controlar el estado del teclado
 }
 
-export default function Keyboard({ keys, onKeyPressed }: KeyboardProps) {
+export default function Keyboard({ keys, onKeyPressed, inUse }: KeyboardProps) {
   function handleInput(e: any) {
     onKeyPressed(e.target.textContent);
   }
@@ -19,7 +20,7 @@ export default function Keyboard({ keys, onKeyPressed }: KeyboardProps) {
   }
 
   return (
-    <div className={styles.keyboardContainer}>
+    <div className={`${styles.keyboardContainer} ${inUse ? styles.inUse : ""}`}>
       {Array.from(Array(10)).map((_, i) => (
         <button key={i} className={styles.key} onClick={handleInput}>
           {keys[i]}
