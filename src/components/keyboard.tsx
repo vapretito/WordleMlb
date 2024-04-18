@@ -1,17 +1,20 @@
+import React, { useState } from "react";
 import styles from "./keyboard.module.css";
 
 interface KeyboardProps {
   keys: string[];
   onKeyPressed: (key: string) => void;
-  inUse?: boolean; // Agrega la propiedad inUse opcional para controlar el estado del teclado
 }
 
-export default function Keyboard({ keys, onKeyPressed, inUse }: KeyboardProps) {
+export default function Keyboard({ keys, onKeyPressed }: KeyboardProps) {
+  const [keyboardInUse, setKeyboardInUse] = useState(false);
+
   function handleInput(e: any) {
     onKeyPressed(e.target.textContent);
   }
 
   function handleEnter(e: any) {
+    setKeyboardInUse(true);
     onKeyPressed("ENTER");
   }
 
@@ -20,28 +23,27 @@ export default function Keyboard({ keys, onKeyPressed, inUse }: KeyboardProps) {
   }
 
   return (
-    <div className={`${styles.keyboardContainer} ${inUse ? styles.inUse : ""}`}>
-      {Array.from(Array(10)).map((_, i) => (
-        <button key={i} className={styles.key} onClick={handleInput}>
-          {keys[i]}
+    <div className={`${styles.keyboardContainer} ${keyboardInUse ? styles.inUse : ""}`}>
+      {keys.slice(0, 10).map((key, index) => (
+        <button key={index} className={styles.key} onClick={handleInput}>
+          {key}
         </button>
       ))}
-      <div className={styles.emptyKey}></div>
-      {Array.from(Array(9)).map((_, i) => (
-        <button key={i + 10} className={styles.key} onClick={handleInput}>
-          {keys[i + 10]}
-        </button>
-      ))}
-      <button className={styles.enterKey} onClick={handleEnter}>
-        ENTER
-      </button>
-      {Array.from(Array(7)).map((_, i) => (
-        <button key={i + 19} className={styles.key} onClick={handleInput}>
-          {keys[i + 19]}
+      {keys.slice(10, 20).map((key, index) => (
+        <button key={index + 10} className={styles.key} onClick={handleInput}>
+          {key}
         </button>
       ))}
       <button className={styles.deleteKey} onClick={handleDelete}>
         DELETE
+      </button>
+      {keys.slice(20).map((key, index) => (
+        <button key={index + 20} className={styles.key} onClick={handleInput}>
+          {key}
+        </button>
+      ))}
+      <button className={styles.enterKey} onClick={handleEnter}>
+        ENTER
       </button>
     </div>
   );
