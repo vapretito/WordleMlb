@@ -889,6 +889,8 @@ export const Players = [
           country: "United States Of America",
           team: "Los Angeles Angels",
           position: "P",
+          img: "https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/690829/headshot/67/current",
+
           id: 110
         },
         {
