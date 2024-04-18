@@ -1,5 +1,5 @@
 .row {
     display: flex;
     text-transform: uppercase;
-   
+    background-color: rgba(0, 0, 0, 0.144);
 }

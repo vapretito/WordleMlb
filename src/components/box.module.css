@@ -4,7 +4,6 @@
 .empty,
 .edit {
     color: rgb(255, 255, 255);
-
     width: 70px;
     height: 70px;
     margin: 5px;
@@ -14,23 +13,20 @@
     align-items: center;
     justify-content: center;
     border: 2px solid rgb(241, 238, 238); /* Agregar borde de color negro */
+    background-color: rgba(12, 9, 9, 0.171); ; /* Fondo transparente */
 }
-
 
 .present {
     background-color: #e5f321;
-    border: #e5f321 solid 2px;
-    color: rgb(255, 255, 255);
+    border-color: #e5f321; /* Cambiar el color del borde de acuerdo al fondo */
 }
 
 .absent {
     background-color: rgb(123, 124, 124);
-    border: rgb(123, 124, 124) solid 2px; /* ¿Es correcto usar el color de la clase .present aquí? */
-    color: rgb(255, 255, 255);
+    border-color: rgb(123, 124, 124); /* Cambiar el color del borde de acuerdo al fondo */
 }
 
 .correct {
     background-color: #4caf50;
-    border: #4caf50 solid 2px;
-    color: rgb(255, 255, 255);
+    border-color: #4caf50; /* Cambiar el color del borde de acuerdo al fondo */
 }

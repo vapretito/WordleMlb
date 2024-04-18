@@ -55,6 +55,15 @@ export default function Wordle() {
       setWordOfTheDay(wordOfTheDay);
   }, []);
 
+  // Función para reiniciar el juego
+  const resetGame = () => {
+    setCurrentWord("");
+    setCompletedWords([]);
+    setGameStatus(GameStatus.Playing);
+    setShowModal(false);
+    setTurn(1);
+  };
+
   function handleKeyDown(event: KeyboardEvent) {
     const key = event.key.toUpperCase();
 
@@ -162,6 +171,8 @@ export default function Wordle() {
       </div>
 
       <Keyboard keys={keys} onKeyPressed={onKeyPressed} />
+      <button onClick={resetGame}>Reiniciar juego</button>
+
     </>
   );
 }

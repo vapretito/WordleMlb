@@ -1,4 +1,6 @@
 body {
-  background-color: rgb(0, 0, 0);
+  background-image: url('https://www.prosportsbackgrounds.com/wp-content/uploads/MLB-wallpaper-geometric-logo-geometric-desktop-MLB-2024.jpg');
+  background-size: cover; /* Ajustar la imagen para cubrir todo el fondo */
+  background-position:top ;/* Centrar la imagen en el fondo */
   font-family: Arial, Helvetica, sans-serif;
 }
