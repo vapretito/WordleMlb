@@ -9,42 +9,48 @@ interface KeyboardProps {
 export default function Keyboard({ keys, onKeyPressed }: KeyboardProps) {
   const [keyboardInUse, setKeyboardInUse] = useState(false);
 
-  function handleInput(e: any) {
-    onKeyPressed(e.target.textContent);
+  function handleInput(key: string) {
+    onKeyPressed(key);
   }
 
-  function handleEnter(e: any) {
+  function handleEnter() {
     setKeyboardInUse(true);
     onKeyPressed("ENTER");
   }
 
-  function handleDelete(e: any) {
+  function handleDelete() {
     onKeyPressed("BACKSPACE");
   }
 
   return (
     <div className={`${styles.keyboardContainer} ${keyboardInUse ? styles.inUse : ""}`}>
-      {keys.slice(0, 10).map((key, index) => (
-        <button key={index} className={styles.key} onClick={handleInput}>
-          {key}
+      <div className={styles.row}>
+        {keys.slice(0, 10).map((key, index) => (
+          <button key={index} className={styles.key} onClick={() => handleInput(key)}>
+            {key}
+          </button>
+        ))}
+      </div>
+      <div className={styles.row}>
+        {keys.slice(10, 20).map((key, index) => (
+          <button key={index + 10} className={styles.key} onClick={() => handleInput(key)}>
+            {key}
+          </button>
+        ))}
+      </div>
+      <div className={styles.row}>
+        <button className={styles.deleteKey} onClick={handleDelete}>
+          DELETE
         </button>
-      ))}
-      {keys.slice(10, 20).map((key, index) => (
-        <button key={index + 10} className={styles.key} onClick={handleInput}>
-          {key}
+        {keys.slice(20).map((key, index) => (
+          <button key={index + 20} className={styles.key} onClick={() => handleInput(key)}>
+            {key}
+          </button>
+        ))}
+        <button className={styles.enterKey} onClick={handleEnter}>
+          ENTER
         </button>
-      ))}
-      <button className={styles.deleteKey} onClick={handleDelete}>
-        DELETE
-      </button>
-      {keys.slice(20).map((key, index) => (
-        <button key={index + 20} className={styles.key} onClick={handleInput}>
-          {key}
-        </button>
-      ))}
-      <button className={styles.enterKey} onClick={handleEnter}>
-        ENTER
-      </button>
+      </div>
     </div>
   );
 }
