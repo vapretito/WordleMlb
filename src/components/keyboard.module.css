@@ -6,6 +6,11 @@
   margin: 0 auto; /* Centra el teclado horizontalmente */
   gap: 5px;
 }
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px; /* Espacio entre las filas */
+}
 
 .key {
   width: 50px;
@@ -46,4 +51,17 @@
 
 .keyboardContainer.inUse {
   background-color: #99989800; /* Cambia el color de fondo cuando el teclado está en uso */
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px; /* Espacio entre las filas */
+}
+
+.key {
+  flex-basis: calc(10% - 5px); /* Tamaño inicial de cada botón, con un margen derecho de 5px */
+}
+
+.deleteKey, .enterKey {
+  flex-basis: calc(20% - 5px); /* Tamaño inicial de los botones ENTER y DELETE */
 }
