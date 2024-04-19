@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarBrand}>
-        <img src="https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w1536/mlb/jhk3gttcngayinbx5r6d.jpg" alt="Logo" className={styles.logo} />
+        <img src="https://i.pinimg.com/originals/30/4d/06/304d06b0dd86494d71e44802395c3a50.png" alt="Logo" className={styles.logo} />
       </div>
       <div className={styles.navbarBrand}>
         <h1>WorldMLB</h1>
