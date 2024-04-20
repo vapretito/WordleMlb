@@ -15,12 +15,7 @@ const Navbar = () => {
         <li className={styles.navbarMenuItem}>
           <a href="#" className={styles.navbarMenuLink}></a>
         </li>
-        <li className={styles.navbarMenuItem}>
-          <a href="#" className={styles.navbarMenuLink}>Acerca de</a>
-        </li>
-        <li className={styles.navbarMenuItem}>
-          <a href="#" className={styles.navbarMenuLink}>Contacto</a>
-        </li>
+        
       </ul>
     </nav>
   );

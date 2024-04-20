@@ -11,13 +11,13 @@ import styles from "./CenterBox.module.css"; // Importa los estilos para el cuad
 function CenterBox() {
   return (
     <div className={styles.centerBox}>
-      <h2>Elija un juego:</h2>
+      <h2>Elija un juego</h2>
       <div className={styles.buttonsContainer}>
         <Link to="/wordle" className={styles.button}>
-          Wordle
+          Wordle ⚾
         </Link>
         <Link to="/bingo" className={styles.button}>
-          Bingo
+          Bingo ⚾
         </Link>
       </div>
     </div>
