@@ -15,13 +15,14 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <SideBar />
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/wordle" element={<Wordle />} />
           <Route path="/bingo" element={<BingoBoard playersData={MLBPlayersData} />} />
         </Routes>
       </div>
+      <SideBar />
     </Router>
   );
 }
