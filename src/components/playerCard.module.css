@@ -16,7 +16,7 @@
 
 .cardHeader {
   background: linear-gradient(to right, #b87c5d, #964b00); /* Marrones cálidos para un look más vintage */
-  border-radius: 15px 15px 0 0; /* Mismo radio que el contenedor */
+  border-radius: 15px 15px 15px 15px; /* Mismo radio que el contenedor */
   color: white;
   padding: 15px; /* Espaciado mayor para un look más pulido */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra para resaltar el texto */

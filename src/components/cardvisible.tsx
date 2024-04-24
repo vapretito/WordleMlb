@@ -7,6 +7,7 @@ const CardVisible = ({ playersData }: { playersData: MLBPlayers[] }) => {
   const [guessCount, setGuessCount] = useState(0);
   const [correctPlayer, setCorrectPlayer] = useState<MLBPlayers | null>(null);
   const [attempts, setAttempts] = useState<{ player: MLBPlayers; correct: boolean }[]>([]); // Lista de intentos
+  const [remainingPlayers, setRemainingPlayers] = useState(playersData); // Jugadores restantes
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * playersData.length);
@@ -22,6 +23,9 @@ const CardVisible = ({ playersData }: { playersData: MLBPlayers[] }) => {
     if (isCorrect) {
       alert('ERES BUENISIMO TROLITO');
     }
+
+    // Elimina al jugador seleccionado de la lista de jugadores restantes
+    setRemainingPlayers((prev) => prev.filter((p) => p.id !== player.id));
   };
 
   const blurLevel = correctPlayer ? (attempts.some((a) => a.correct) ? 0 : Math.max(0, 30 - guessCount)) : 30;
@@ -34,7 +38,7 @@ const CardVisible = ({ playersData }: { playersData: MLBPlayers[] }) => {
             player={correctPlayer}
             matchingProperties={['country', 'team', 'position']}
             blurLevel={blurLevel}
-            attempts={guessCount} // Pasa el número de intentos fallidos
+            attempts={guessCount}
           />
         )}
       </div>
@@ -43,14 +47,14 @@ const CardVisible = ({ playersData }: { playersData: MLBPlayers[] }) => {
         <select
           onChange={(e) => {
             const playerId = parseInt(e.target.value, 10);
-            const player = playersData.find((p) => p.id === playerId);
+            const player = remainingPlayers.find((p) => p.id === playerId);
             if (player) {
               handleGuess(player);
             }
           }}
         >
           <option value="">Selecciona un Jugador</option>
-          {playersData.map((player) => (
+          {remainingPlayers.map((player) => (
             <option key={player.id} value={player.id}>
               {player.name} {player.lastname}
             </option>
