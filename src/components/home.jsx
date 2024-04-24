@@ -22,9 +22,9 @@ function Home() {
           </Link>
           
           <Link to="/bingo" className={styles.button}>
-            Bingo ⚾
+            Carta 
             <div className={styles.extraInfo}>
-              Próximamente.
+              Descubre el jugador...
             </div>
           </Link>
         </div>
