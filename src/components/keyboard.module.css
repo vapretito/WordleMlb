@@ -68,11 +68,11 @@
   }
 
   .key {
-    width: 35px; /* Reducir el tamaño para dispositivos más pequeños */
-    height: 55px; /* Reducir la altura */
+    flex-basis: calc(100% / 10 - 6px); /* Adaptar el tamaño para dispositivos más pequeños */
+    height: 45px; /* Reducir la altura para dispositivos pequeños */
   }
 
   .enterKey, .deleteKey {
-    width: 55px; /* Ajustar el tamaño de ENTER y DELETE */
+    flex-basis: calc(100% / 8 - 3px); /* Ajustar el tamaño para ENTER y DELETE en móviles */
   }
 }

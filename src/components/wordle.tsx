@@ -171,7 +171,7 @@ export default function Wordle() {
       </div>
 
       <Keyboard keys={keys} onKeyPressed={onKeyPressed} />
-      <button onClick={resetGame}>Reiniciar juego</button>
+      
 
     </>
   );
