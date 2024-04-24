@@ -81,17 +81,10 @@
   }
   
   @media (max-width: 768px) {
-    .container {
-      flex-direction: column; /* Alineación vertical */
-      justify-content: flex-start; /* Comenzar desde la parte superior */
-      align-items: center; /* Centrar horizontalmente */
-      height: auto; /* Permitir altura flexible */
-      padding-top: 20px; /* Espacio desde la parte superior */
-    }
-  
-    .centerBox {
+    
+      .centerBox {
       padding: 20px; /* Ajustar espaciado para dispositivos móviles */
-      margin-top: 250px; /* Mover hacia abajo */
+      margin-top: 30px; /* Mover hacia abajo */
       background-color: rgba(255, 255, 255, 0); /* Fondo translúcido */
       border-radius: 10px; /* Bordes redondeados */
     }
