@@ -1,24 +1,25 @@
 /* playerCard.module.css */
 .playerCard {
-  background: linear-gradient(to bottom right, #ffffff, #f3f3f3);
-  border: 2px solid #e3e3e3;
-  border-radius: 10px;
+  background: linear-gradient(to bottom right, #fffbe6, #ffe599);
+  border: 2px solid #d1b26f; /* Color marrón para sugerir algo más vintage */
+  border-radius: 15px; /* Esquinas más redondeadas */
   padding: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
   text-align: center;
   max-width: 300px;
 }
 
 .playerCard img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 15px; /* Igual que el borde del contenedor */
 }
 
 .cardHeader {
-  background: linear-gradient(to right, #007bff, #0056b3);
-  border-radius: 10px 10px 0 0;
+  background: linear-gradient(to right, #b87c5d, #964b00); /* Marrones cálidos para un look más vintage */
+  border-radius: 15px 15px 0 0; /* Mismo radio que el contenedor */
   color: white;
-  padding: 10px;
+  padding: 15px; /* Espaciado mayor para un look más pulido */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra para resaltar el texto */
 }
 
 .cardDetails {
@@ -27,7 +28,7 @@
 }
 
 .matching {
-  color: red; /* Cambia el color para destacar las propiedades coincidentes */
+  color: red; /* Color para resaltar */
 }
 
 .playerCard p {

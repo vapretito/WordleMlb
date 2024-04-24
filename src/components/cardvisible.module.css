@@ -6,8 +6,13 @@
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.171);
   transition: filter 0.3s ease; /* Animación para suavizar el cambio de desenfoque */
+  display: flex; /* Para usar Flexbox */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  height: 100vh; /* Para ocupar todo el alto del viewport */
+  background: linear-gradient(to bottom, #f0e68c00, #dda0dd00); /* Opcional: para un fondo más visual */
 }
 
 .blurred {

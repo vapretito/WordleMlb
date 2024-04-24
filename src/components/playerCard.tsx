@@ -23,7 +23,7 @@ const PlayerCard: React.FC<Props> = ({ player, matchingProperties, blurLevel = 1
   return (
     <div className={styles.playerCard}>
       <div className={styles.cardHeader}>
-        <h2>{`${player.name} ${player.lastname}`}</h2>
+        <h2 style={blurStyle} >{`${player.name} ${player.lastname}`}</h2>
       </div>
       <img 
         src={player.img} 

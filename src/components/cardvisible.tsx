@@ -15,7 +15,7 @@ const CardVisible = ({ playersData }: { playersData: MLBPlayers[] }) => {
   const handleGuess = (player: MLBPlayers) => {
     setGuessCount(guessCount + 3);
     if (player === correctPlayer) {
-      alert('Correct! You guessed the player!');
+      alert('ERES BUENISIMO TROLITO');
     }
   };
 
