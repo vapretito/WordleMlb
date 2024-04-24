@@ -1,40 +1,78 @@
 /* playerCard.module.css */
-.playerCard {
-  background: linear-gradient(to bottom right, #fffbe6, #ffe599);
-  border: 2px solid #d1b26f; /* Color marrón para sugerir algo más vintage */
-  border-radius: 15px; /* Esquinas más redondeadas */
-  padding: 20px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
-  text-align: center;
-  max-width: 300px;
+.cardContainer {
+  perspective: 1000px; /* Configura el espacio 3D para la animación */
 }
 
-.playerCard img {
+.playerCard {
+  position: relative;
+  width: 300px;
+  height: 480px;
+  transition: transform 0.6s; /* Transición para el efecto de volteo */
+  transform-style: preserve-3d; /* Permite la rotación 3D */
+  cursor: pointer; /* Cursor de mano para indicar que se puede girar */
+}
+
+.flipped {
+  transform: rotateY(180deg); /* Gira la carta para el efecto de volteo */
+}
+
+.front, .back {
+  position: absolute;
   width: 100%;
-  border-radius: 15px; /* Igual que el borde del contenedor */
+  height: 100%;
+  backface-visibility: hidden; /* Para que no se vea el reverso cuando no está girado */
+}
+
+.front {
+  background: linear-gradient(to bottom left, #002D72, #001e52); /* Degradado para un poco de variación */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px; /* Esquinas redondeadas */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra interna para crear relieve */
+  background-size: contain; /* Ajusta la imagen para que entre completamente */
+  background-position: center; /* Mantiene la imagen centrada */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.frontImage {
+  width: 100%; /* Ajusta la imagen para que ocupe todo el espacio */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border-radius: 15px; /* Mismo radio que el contenedor */
+}
+
+
+.back {
+  transform: rotateY(180deg); /* Rota la parte trasera para ser visible cuando está volteada */
+  background: linear-gradient(to bottom right, #fffbe6, #ffe599); /* Fondo para la parte trasera */
+  border-radius: 15px 15px 15px 15px; /* Esquinas redondeadas */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+
+
 }
 
 .cardHeader {
-  background: linear-gradient(to right, #b87c5d, #964b00); /* Marrones cálidos para un look más vintage */
-  border-radius: 15px 15px 15px 15px; /* Mismo radio que el contenedor */
+  background: linear-gradient(to right, #b87c5d, #964b00); /* Marrón cálido para el diseño vintage */
   color: white;
-  padding: 15px; /* Espaciado mayor para un look más pulido */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra para resaltar el texto */
+  padding: 15px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra para resaltar */
+  border-radius: 15px 15px 0 0; /* Esquinas redondeadas */
+  
 }
 
 .cardDetails {
+  padding: 15px;
   text-align: left;
-  margin-top: 10px;
-}
-
-.matching {
-  color: red; /* Color para resaltar */
-}
-
-.playerCard p {
-  font-size: 14px;
-  color: #555;
-  padding: 5px 0;
-}
-
+  background-color: #b87b5d00;
   
+}
+
+
+
+.playerCard img {
+  border-radius: 5px; /* Mantiene las esquinas redondeadas */
+  width: 150px; /* Tamaño fijo para la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: block; /* Asegura que el centrado funcione */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}

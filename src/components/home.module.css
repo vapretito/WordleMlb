@@ -42,7 +42,7 @@
   
   .button {
     font-family: "Press Start 2P", system-ui;
-    background: linear-gradient(90deg, #002D72, #D50032);
+    background:#D50032;
     color: white;
     border: none;
     padding: 15px 30px;
