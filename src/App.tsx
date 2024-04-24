@@ -4,7 +4,7 @@ import Wordle from "./components/wordle";
 import Navbar from "./components/navBar";
 import "./App.module.css";
 import SideBar from "./components/sideBar";
-import BingoBoard from "./components/bingo";
+import BingoBoard from "./components/cardvisible";
 import { MLBPlayersData } from "./service/playersBingo";
 import Home from "./components/home";
 

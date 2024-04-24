@@ -1,4 +1,4 @@
-import { MLBPlayers } from './../service/playersBingo';
+import { MLBPlayers } from '../service/playersBingo';
 
 export const generateBoard = (playersData: MLBPlayers[]) => {
     const selectedPlayers: MLBPlayers[] = [];
