@@ -1,131 +1,78 @@
 .keyboardContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 100%; /* Porcentaje del ancho de la ventana */
-  max-width: 500px; /* Ancho máximo para mantenerlo legible en dispositivos grandes */
+  justify-content: center; /* Centrar el teclado horizontalmente */
+  max-width: 500px; /* Ancho máximo para pantallas grandes */
   margin: 0 auto; /* Centra el teclado horizontalmente */
-  gap: 5px;
+  padding: 10px; /* Espacio alrededor del teclado */
+  gap: 5px; /* Espacio entre teclas */
+  background-color: rgba(240, 248, 255, 0.1); /* Fondo translúcido */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle dimensión */
 }
+
 .row {
   display: flex;
-  justify-content: center;
-  margin-bottom: 5px; /* Espacio entre las filas */
+  justify-content: center; /* Centrar las teclas en cada fila */
+  gap: 5px; /* Espacio entre teclas en cada fila */
+  margin-bottom: 5px; /* Espacio entre filas */
 }
 
 .key {
-  width: 50px;
-  height: 70px;
-}
-
-.emptyKey {
-  width: 25px;
-  height: 70px;
+  width: 40px; /* Reducir el tamaño de las teclas */
+  height: 60px; /* Reducir la altura */
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #ffffff; /* Fondo blanco */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
+  transition: all 0.2s; /* Transiciones suaves para efectos de hover */
 }
 
-.enterKey,
-.deleteKey {
-  width: 80px;
-  height: 70px;
+.key:hover {
+  background-color: #f0f0f0; /* Cambiar color al hacer hover */
+  transform: translateY(-2px); /* Efecto de elevación */
 }
 
-.correct {
-  background-color: #4caf50;
-  border: #4caf50 solid 2px;
-  color: black;
+.enterKey, .deleteKey {
+  width: 60px; /* Reducir el tamaño de ENTER y DELETE */
+  height: 60px; /* Ajustar altura */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0; /* Fondo ligeramente más oscuro */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
 }
 
-.present {
-  background-color: #e5f321;
-  border: #e5f321 solid 2px;
-  color: black;
-}
-
-.absent {
-  background-color: #aaa;
-  border: #aaa solid 2px;
-  color: black;
+.enterKey:hover, .deleteKey:hover {
+  background-color: #ddd; /* Cambiar color al hacer hover */
 }
 
 .keyboardContainer.inUse {
-  background-color: #99989800; /* Cambia el color de fondo cuando el teclado está en uso */
-}
-.row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px; /* Espacio entre las filas */
-}
-
-.key {
-  flex-basis: calc(10% - 5px); /* Tamaño inicial de cada botón, con un margen derecho de 5px */
-}
-
-.deleteKey, .enterKey {
-  flex-basis: calc(20% - 5px); /* Tamaño inicial de los botones ENTER y DELETE */
+  background-color: #e0e0e0; /* Cambia el color de fondo cuando el teclado está en uso */
 }
 
 /* Ajustes para dispositivos móviles */
-/* Ajustes para dispositivos móviles más pequeños */
 @media (max-width: 480px) {
   .keyboardContainer {
-    display: flex;
-    flex-wrap: wrap; /* Permite que las teclas se reorganicen si es necesario */
-    justify-content: center; /* Centra el teclado horizontalmente */
-    gap: 2px; /* Menos espacio entre teclas */
-    padding: 5px; /* Reducir padding para hacer el teclado más compacto */
-    overflow-x: hidden; /* Evitar que el contenido se desborde horizontalmente */
-    width: 100%; /* Asegurar que el teclado ocupe todo el ancho del dispositivo */
+    padding: 5px; /* Reducir padding para dispositivos más pequeños */
+    gap: 3px; /* Reducir espacio entre teclas */
   }
 
   .row {
-    justify-content: center; /* Centrar las teclas en cada fila */
-    margin-bottom: 2px; /* Reducir espacio entre filas */
+    gap: 3px; /* Reducir espacio entre teclas en cada fila */
+    margin-bottom: 3px; /* Reducir espacio entre filas */
   }
 
   .key {
-    flex-basis: 9%; /* Reducir tamaño para que entren más teclas en una fila */
-    height: 40px; /* Reducir altura para que el teclado sea más pequeño */
-  }
-
-  .emptyKey {
-    flex-basis: 4%; /* Tamaño ajustado para teclas vacías */
+    width: 35px; /* Reducir el tamaño para dispositivos más pequeños */
+    height: 55px; /* Reducir la altura */
   }
 
   .enterKey, .deleteKey {
-    flex-basis: 15%; /* Reducir tamaño para teclas más grandes */
-  }
-}
-/* Ajustes para dispositivos móviles más pequeños */
-@media (max-width: 480px) {
-  .keyboardContainer {
-    display: flex;
-    flex-wrap: wrap; /* Permite que las teclas se reorganicen */
-    justify-content: center; /* Centra el teclado horizontalmente */
-    gap: 1px; /* Reducir espacio entre teclas */
-    padding: 2px; /* Reducir padding para hacer el teclado más compacto */
-    overflow-x: hidden; /* Evitar desbordamientos horizontales */
-    width: 100%; /* Asegurar que el teclado no exceda el ancho del dispositivo */
-  }
-
-  .row {
-    justify-content: center; /* Centrar las teclas en cada fila */
-    margin-bottom: 1px; /* Reducir espacio entre filas */
-  }
-
-  .key {
-    flex-basis: 8%; /* Reducir tamaño para que entren más teclas en una fila */
-    height: 35px; /* Reducir altura para que el teclado sea más pequeño */
-  }
-
-  .emptyKey {
-    flex-basis: 3%; /* Tamaño ajustado para teclas vacías */
-    height: 35px; /* Reducir altura */
-  }
-
-  .enterKey, .deleteKey {
-    flex-basis: 12%; /* Reducir tamaño para teclas más grandes */
-    height: 35px; /* Reducir altura */
+    width: 55px; /* Ajustar el tamaño de ENTER y DELETE */
   }
 }

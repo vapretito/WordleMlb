@@ -1,7 +1,18 @@
 .mainContainer {
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: calc(70px * 5); /* Ancho máximo basado en el tamaño de los elementos hijos */
-    margin: 10px auto; /* Establece el margen superior e inferior en 10px y los laterales automáticos */
-    text-align: center; /* Centra el contenido dentro del contenedor */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: calc(70px * 5); /* Reducir un poco el ancho máximo */
+  margin: 10px auto; /* Establecer un margen más grande para centrarlo mejor */
+  text-align: center; /* Centrar el contenido dentro del contenedor */
+  padding: 10px; /* Añadir algo de padding para evitar que el contenido toque los bordes */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.459); /* Agregar una pequeña sombra para el fondo */
+  margin-top: -3%;
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 480px) {
+  .mainContainer {
+    max-width: calc(60px * 6); /* Ajustar el ancho máximo para pantallas más pequeñas */
+    padding: 5px; /* Reducir padding para dispositivos móviles */
+    margin: 10px auto; /* Ajustar el margen para centrarlo mejor */
   }
-  
+}
