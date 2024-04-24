@@ -1,0 +1,107 @@
+.container {
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    position: relative; /* Permite posicionamiento de hijos relativos a este contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centrar horizontal y verticalmente */
+  }
+  
+  .topHeadingContainer {
+    position: absolute; /* Ubicarlo en un lugar fijo */
+    top: 0; /* Alinearlo a la parte superior del contenedor */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Asegurar que esté perfectamente centrado */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 10px; /* Añadir algo de espaciado */
+  }
+  
+  .mainHeading {
+    font-family: "Press Start 2P", system-ui; /* Fuente personalizada */
+    font-weight: 400;
+    font-size: 1em;
+    color: #ffffff; /* Texto en blanco */
+    text-align: center; /* Centrar texto */
+  }
+  
+  .centerBox {
+    position: absolute;
+    top: 25%; /* Subir el box 5% */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0);
+    padding: 30px; /* Más padding para hacer el box más grande */
+    border-radius: 10px; /* Bordes redondeados */
+    text-align: center;
+  }
+  
+  .buttonsContainer {
+    display: flex;
+    flex-direction: column; /* Alineación vertical */
+    gap: 30px; /* Aumentar espacio entre botones */
+  }
+  
+  .button {
+    font-family: "Press Start 2P", system-ui;
+    background: linear-gradient(90deg, #002D72, #D50032);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative; /* Permitir posicionamiento relativo para la sección expandible */
+  }
+  
+  .button:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+  }
+  
+  /* Ocultar la sección de información adicional por defecto */
+  .extraInfo {
+    display: none;
+    position: absolute; /* Posicionamiento para que se alinee con el botón */
+    top: 100%; /* Colocar la sección justo debajo del botón */
+    left: 50%;
+    transform: translateX(-50%); /* Centrar horizontalmente */
+    background-color: rgb(255, 255, 255); /* Fondo blanco para la sección expandible */
+    color: #002D72; /* Texto azul oscuro */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 5px; /* Espaciado interno */
+    white-space: nowrap; /* Asegurar que el texto no se rompa en varias líneas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+    z-index: 10; /* Asegurar que esté por encima de otros elementos */
+    transition: opacity 0.3s; /* Suavizar el efecto de aparición */
+    font-size: 0.7em;
+
+  }
+  
+  .button:hover .extraInfo {
+    display: block; /* Mostrar la sección al hacer hover */
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Alineación vertical */
+      justify-content: flex-start; /* Comenzar desde la parte superior */
+      align-items: center; /* Centrar horizontalmente */
+      height: auto; /* Permitir altura flexible */
+      padding-top: 20px; /* Espacio desde la parte superior */
+    }
+  
+    .centerBox {
+      padding: 20px; /* Ajustar espaciado para dispositivos móviles */
+      margin-top: 250px; /* Mover hacia abajo */
+      background-color: rgba(255, 255, 255, 0); /* Fondo translúcido */
+      border-radius: 10px; /* Bordes redondeados */
+    }
+  
+    .button {
+      padding: 10px 20px; /* Ajustar tamaño de botones para dispositivos móviles */
+    }
+  
+    .extraInfo {
+      font-size: 0.6em; /* Ajustar tamaño de fuente para dispositivos móviles */
+    }
+  }
+  

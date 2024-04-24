@@ -1,50 +1,36 @@
-/* styles.module.css */
+/* Estilos base para la barra de navegación */
 .navbar {
   background-color: #72717100;
   color: #fff;
   padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center; /* Centrar el contenido horizontalmente */
+  align-items: center; /* Centrar el contenido verticalmente */
 }
 
-.navbarBrand {
-  display: flex;
-  align-items: center;
+/* Estilo para el logo de WorldMLB con efecto de movimiento */
+.logo {
+  height: 200px; /* Tamaño del logo */
+  width: auto; /* Mantener proporción */
+  transition: transform 0.3s ease; /* Transición suave */
 }
 
-.navbarBrand h1 {
-  margin-left: -130px; /* Para mover el h1 hacia la izquierda */
+.logo:hover {
+  transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
 }
-  
-  .navbarMenu {
-    
-    list-style-type: none; /* Eliminar viñetas de la lista */
-    display: flex; /* Alinear elementos horizontalmente */
-    margin: 0; /* Eliminar margen externo */
-    padding: 0; /* Eliminar espaciado interno */
+
+/* Media query para dispositivos móviles (por ejemplo, máximo 600px de ancho) */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 10px 15px; /* Reducir el padding para dispositivos móviles */
   }
-  
-  .navbarMenuMtem {
-    margin-right: 15px;
-    text-decoration: none; 
-    /* Espaciado entre elementos de la lista */
-  }
-  
-  .navbarMenuLink {
-    text-decoration: none; 
-    color: #fff; /* Color del texto del enlace */
-    transition: color 0.3s; /* Transición suave del color del texto */
-  }
-  
-  .navbarMenuLink:hover,
-  .navbarMenuLink:visited {
-    color: #ccc; /* Cambiar color del texto al pasar el mouse y después de hacer clic */
-    text-decoration: none; 
-  }
-  
+
   .logo {
-    width: 150px; /* Ancho de la imagen del logo */
-    height: auto; /* Mantener la proporción de la imagen */
+    height: 120px; /* Reducir el tamaño del logo para dispositivos móviles */
+    transform: scale(1); /* Restablecer la transformación por defecto */
   }
-  
+
+  .logo:hover {
+    transform: scale(1.05); /* Reducir el efecto de zoom para evitar recortes */
+  }
+}
