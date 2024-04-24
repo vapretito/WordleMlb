@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%; /* Porcentaje del ancho de la ventana */
-  max-width: 510px; /* Ancho máximo para mantenerlo legible en dispositivos grandes */
+  max-width: 500px; /* Ancho máximo para mantenerlo legible en dispositivos grandes */
   margin: 0 auto; /* Centra el teclado horizontalmente */
   gap: 5px;
 }
@@ -64,4 +64,68 @@
 
 .deleteKey, .enterKey {
   flex-basis: calc(20% - 5px); /* Tamaño inicial de los botones ENTER y DELETE */
+}
+
+/* Ajustes para dispositivos móviles */
+/* Ajustes para dispositivos móviles más pequeños */
+@media (max-width: 480px) {
+  .keyboardContainer {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las teclas se reorganicen si es necesario */
+    justify-content: center; /* Centra el teclado horizontalmente */
+    gap: 2px; /* Menos espacio entre teclas */
+    padding: 5px; /* Reducir padding para hacer el teclado más compacto */
+    overflow-x: hidden; /* Evitar que el contenido se desborde horizontalmente */
+    width: 100%; /* Asegurar que el teclado ocupe todo el ancho del dispositivo */
+  }
+
+  .row {
+    justify-content: center; /* Centrar las teclas en cada fila */
+    margin-bottom: 2px; /* Reducir espacio entre filas */
+  }
+
+  .key {
+    flex-basis: 9%; /* Reducir tamaño para que entren más teclas en una fila */
+    height: 40px; /* Reducir altura para que el teclado sea más pequeño */
+  }
+
+  .emptyKey {
+    flex-basis: 4%; /* Tamaño ajustado para teclas vacías */
+  }
+
+  .enterKey, .deleteKey {
+    flex-basis: 15%; /* Reducir tamaño para teclas más grandes */
+  }
+}
+/* Ajustes para dispositivos móviles más pequeños */
+@media (max-width: 480px) {
+  .keyboardContainer {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las teclas se reorganicen */
+    justify-content: center; /* Centra el teclado horizontalmente */
+    gap: 1px; /* Reducir espacio entre teclas */
+    padding: 2px; /* Reducir padding para hacer el teclado más compacto */
+    overflow-x: hidden; /* Evitar desbordamientos horizontales */
+    width: 100%; /* Asegurar que el teclado no exceda el ancho del dispositivo */
+  }
+
+  .row {
+    justify-content: center; /* Centrar las teclas en cada fila */
+    margin-bottom: 1px; /* Reducir espacio entre filas */
+  }
+
+  .key {
+    flex-basis: 8%; /* Reducir tamaño para que entren más teclas en una fila */
+    height: 35px; /* Reducir altura para que el teclado sea más pequeño */
+  }
+
+  .emptyKey {
+    flex-basis: 3%; /* Tamaño ajustado para teclas vacías */
+    height: 35px; /* Reducir altura */
+  }
+
+  .enterKey, .deleteKey {
+    flex-basis: 12%; /* Reducir tamaño para teclas más grandes */
+    height: 35px; /* Reducir altura */
+  }
 }
