@@ -11,20 +11,16 @@
   }
   
   .modalContent {
-    background: linear-gradient(
-      135deg,
-      rgba(192, 192, 192, 0.7), /* Plata */
-      rgba(224, 224, 224, 0.7), /* Gris claro */
-      rgba(255, 255, 255, 0.7)  /* Blanco para un efecto metálico */
-    );
+    background-image: url('../service/img/9975067.jpg'); /* Agregar imagen de textura */
+    background-size: cover; /* Ajustar la imagen para cubrir todo el fondo */
     border-radius: 15px;
-    border: 3px solid rgba(255, 255, 255, 0.8);
+    border: 3px solid rgba(252, 253, 195, 0.8);
     padding: 20px;
     position: relative;
     transition: all 0.3s ease-in-out;
     animation: none;
     cursor: pointer;
-    text-align: center;
+    text-align: left;
   }
   
   .modalContent.flipped {
@@ -55,8 +51,13 @@
   }
   
   .playerImage {
-    width: 120px; /* Tamaño más grande para el efecto de carta */
+    width: 100px; /* Tamaño más grande para el efecto de carta */
     height: 120px;
-    border-radius: 50%; /* Para mantener el estilo */
+    border-radius: 10px; /* Para mantener el estilo */
+
   }
-  
+  .imageContainer {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+  }

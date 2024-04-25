@@ -154,7 +154,7 @@ export const MLBPlayersData: MLBPlayers[] = [
       record: "Triple Crown Winner",
       otherLeague: false,
       position: "First Baseman",
-      img: "https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/467055/headshot/67/current"
+      img: "https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/408234/headshot/67/current"
     },
     {
       id: 13,

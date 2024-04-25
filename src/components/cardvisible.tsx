@@ -50,8 +50,8 @@ const CardVisible = ({ playersData }: CardVisibleProps) => {
   const blurLevel = correctPlayer
     ? attempts.some((a) => a.correct)
       ? 0
-      : Math.max(0, 30 - guessCount)
-    : 30;
+      : Math.max(0, 15- guessCount * 2)
+    : 15;
 
     return (
       <div className={styles.cardContainer}>

@@ -11,7 +11,7 @@ interface ModalProps {
 const ModalCard: React.FC<ModalProps> = ({ player, onClose }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-  const [isFlipped, setIsFlipped] = useState(false); /* Controla si está girado */
+  const [isFlipped, setIsFlipped] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,7 +27,7 @@ const ModalCard: React.FC<ModalProps> = ({ player, onClose }) => {
   }, []);
 
   const handleFlip = () => {
-    setIsFlipped(!isFlipped); /* Activa/desactiva el giro */
+    setIsFlipped(!isFlipped);
   };
 
   return (
@@ -36,11 +36,16 @@ const ModalCard: React.FC<ModalProps> = ({ player, onClose }) => {
       <div className={styles.modalOverlay}>
         <div
           className={`${styles.modalContent} ${isFlipped ? 'flipped' : ''}`}
-          onClick={handleFlip} /* Esto activa el giro */
+          onClick={handleFlip}
         >
           <button onClick={onClose} className={styles.closeButton}>✖️</button>
+          
           <h2>¡Jugador Adivinado!</h2>
-          <img src={player.img} alt={`${player.name} ${player.lastname}`} className={styles.playerImage} />
+
+          <div className={styles.imageContainer}> {/* Contenedor para centrar la imagen */}
+            <img src={player.img} alt={`${player.name} ${player.lastname}`} className={styles.playerImage} />
+          </div>
+
           <p>{`Has adivinado a ${player.name} ${player.lastname}`}</p>
           <p>🌍 País: {player.country}</p>
           <p>🛡️ Equipo: {player.team}</p>
