@@ -2,6 +2,7 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import styles from './cardvisible.module.css';
 import PlayerCard from './playerCard';
 import { MLBPlayers } from '../service/playersBingo';
+import ModalCard from './modalCard'; // Importar el modal
 
 type CardVisibleProps = {
   playersData: MLBPlayers[];
@@ -16,6 +17,7 @@ const CardVisible = ({ playersData }: CardVisibleProps) => {
   const [guessCount, setGuessCount] = useState<number>(0);
   const [correctPlayer, setCorrectPlayer] = useState<MLBPlayers | null>(null);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
+  const [isModalVisible, setIsModalVisible] = useState(false); // Control de visibilidad del modal
   const [remainingPlayers, setRemainingPlayers] = useState<MLBPlayers[]>(playersData);
   const [searchText, setSearchText] = useState<string>('');
 
@@ -31,7 +33,7 @@ const CardVisible = ({ playersData }: CardVisibleProps) => {
     setAttempts((prev) => [...prev, { player, correct: isCorrect }]);
 
     if (isCorrect) {
-      alert('ERES BUENISIMO TROLITO');
+      setIsModalVisible(true); // Mostrar el modal cuando se adivine el jugador
     }
 
     setRemainingPlayers((prev) => prev.filter((p) => p.id !== player.id));
@@ -42,9 +44,7 @@ const CardVisible = ({ playersData }: CardVisibleProps) => {
   };
 
   const filteredPlayers = remainingPlayers.filter((player) =>
-    `${player.name} ${player.lastname}`
-      .toLowerCase()
-      .includes(searchText.toLowerCase())
+    `${player.name} ${player.lastname}`.toLowerCase().includes(searchText.toLowerCase())
   );
 
   const blurLevel = correctPlayer
@@ -53,53 +53,60 @@ const CardVisible = ({ playersData }: CardVisibleProps) => {
       : Math.max(0, 30 - guessCount)
     : 30;
 
-  return (
-    <div className={styles.cardContainer}>
-      <div className={styles.card}>
-        {correctPlayer && (
-          <PlayerCard
+    return (
+      <div className={styles.cardContainer}>
+        {isModalVisible && correctPlayer && (
+          <ModalCard
             player={correctPlayer}
-            matchingProperties={['country', 'team', 'position']}
-            blurLevel={blurLevel}
-            attempts={guessCount}
+            onClose={() => setIsModalVisible(false)}
           />
         )}
+    
+        <div className={styles.card}>
+          {correctPlayer && (
+            <PlayerCard
+              player={correctPlayer}
+              matchingProperties={['country', 'team', 'position']}
+              blurLevel={blurLevel}
+              attempts={guessCount}
+            />
+          )}
+        </div>
+    
+        <div className={styles['search-bar']}>
+          <input
+            type="text"
+            placeholder="Buscar Jugador"
+            value={searchText}
+            onChange={handleSearchChange}
+          />
+          {searchText && (
+            <div className={styles['dropdown']}>
+              {filteredPlayers.map((player) => (
+                <div
+                  key={player.id}
+                  className={styles['dropdown-item']}
+                  onClick={() => handleGuess(player)}
+                >
+                  {player.name} {player.lastname}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+    
+        <div className={styles.attemptsList}>
+          {attempts.map((attempt, index) => (
+            <div
+              key={index}
+              className={`${styles.attempt} ${attempt.correct ? styles.correct : styles.incorrect}`}
+            >
+              {attempt.player.name} {attempt.player.lastname}
+            </div>
+          ))}
+        </div>
       </div>
-
-      <div className={styles['search-bar']}>
-        <input
-          type="text"
-          placeholder="Buscar Jugador"
-          value={searchText}
-          onChange={handleSearchChange}
-        />
-        {searchText && (
-          <div className={styles['dropdown']}>
-            {filteredPlayers.map((player) => (
-              <div
-                key={player.id}
-                className={styles['dropdown-item']}
-                onClick={() => handleGuess(player)}
-              >
-                {player.name} {player.lastname}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <div className={styles.attemptsList}>
-        {attempts.map((attempt, index) => (
-          <div
-            key={index}
-            className={`${styles.attempt} ${attempt.correct ? styles.correct : styles.incorrect}`}
-          >
-            {attempt.player.name} {attempt.player.lastname}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+    );
+  }    
 
 export default CardVisible;
