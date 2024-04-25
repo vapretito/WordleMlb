@@ -1,13 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import styles from './cardvisible.module.css';
 import PlayerCard from './playerCard';
 import { MLBPlayers } from '../service/playersBingo';
 
-const CardVisible = ({ playersData }: { playersData: MLBPlayers[] }) => {
-  const [guessCount, setGuessCount] = useState(0);
+type CardVisibleProps = {
+  playersData: MLBPlayers[];
+};
+
+type Attempt = {
+  player: MLBPlayers;
+  correct: boolean;
+};
+
+const CardVisible = ({ playersData }: CardVisibleProps) => {
+  const [guessCount, setGuessCount] = useState<number>(0);
   const [correctPlayer, setCorrectPlayer] = useState<MLBPlayers | null>(null);
-  const [attempts, setAttempts] = useState<{ player: MLBPlayers; correct: boolean }[]>([]); // Lista de intentos
-  const [remainingPlayers, setRemainingPlayers] = useState(playersData); // Jugadores restantes
+  const [attempts, setAttempts] = useState<Attempt[]>([]);
+  const [remainingPlayers, setRemainingPlayers] = useState<MLBPlayers[]>(playersData);
+  const [searchText, setSearchText] = useState<string>('');
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * playersData.length);
@@ -24,11 +34,24 @@ const CardVisible = ({ playersData }: { playersData: MLBPlayers[] }) => {
       alert('ERES BUENISIMO TROLITO');
     }
 
-    // Elimina al jugador seleccionado de la lista de jugadores restantes
     setRemainingPlayers((prev) => prev.filter((p) => p.id !== player.id));
   };
 
-  const blurLevel = correctPlayer ? (attempts.some((a) => a.correct) ? 0 : Math.max(0, 30 - guessCount)) : 30;
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchText(e.target.value);
+  };
+
+  const filteredPlayers = remainingPlayers.filter((player) =>
+    `${player.name} ${player.lastname}`
+      .toLowerCase()
+      .includes(searchText.toLowerCase())
+  );
+
+  const blurLevel = correctPlayer
+    ? attempts.some((a) => a.correct)
+      ? 0
+      : Math.max(0, 30 - guessCount)
+    : 30;
 
   return (
     <div className={styles.cardContainer}>
@@ -43,26 +66,28 @@ const CardVisible = ({ playersData }: { playersData: MLBPlayers[] }) => {
         )}
       </div>
 
-      <div className={styles['select-player']}>
-        <select
-          onChange={(e) => {
-            const playerId = parseInt(e.target.value, 10);
-            const player = remainingPlayers.find((p) => p.id === playerId);
-            if (player) {
-              handleGuess(player);
-            }
-          }}
-        >
-          <option value="">Selecciona un Jugador</option>
-          {remainingPlayers.map((player) => (
-            <option key={player.id} value={player.id}>
-              {player.name} {player.lastname}
-            </option>
-          ))}
-        </select>
+      <div className={styles['search-bar']}>
+        <input
+          type="text"
+          placeholder="Buscar Jugador"
+          value={searchText}
+          onChange={handleSearchChange}
+        />
+        {searchText && (
+          <div className={styles['dropdown']}>
+            {filteredPlayers.map((player) => (
+              <div
+                key={player.id}
+                className={styles['dropdown-item']}
+                onClick={() => handleGuess(player)}
+              >
+                {player.name} {player.lastname}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Mostrar lista de intentos */}
       <div className={styles.attemptsList}>
         {attempts.map((attempt, index) => (
           <div

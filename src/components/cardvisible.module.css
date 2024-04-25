@@ -1,6 +1,6 @@
-
 /* cardvisible.module.css */
 
+/* Estilos previos */
 .cardContainer {
   display: flex;
   flex-direction: column;
@@ -19,15 +19,41 @@
   transition: filter 0.3s ease;
 }
 
-.select-player {
-  margin-top: 20px;
+.search-bar {
+  position: relative;
+  width: 300px;
 }
 
-.select-player select {
+.search-bar input {
+  width: 100%;
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
   border: 1px solid #ccc;
+}
+
+/* Nueva pestaña para mostrar resultados de búsqueda */
+.dropdown {
+  position: absolute;
+  top: 40px; /* Espacio para el input */
+  width: 100%;
+  max-height: 200px; /* Limita la altura */
+  overflow-y: auto; /* Desplazamiento vertical */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombreado para la pestaña */
+  z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer; /* Cambia el cursor para indicar que es seleccionable */
+  transition: background-color 0.3s ease; /* Suaviza el cambio de fondo */
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0; /* Cambia el fondo al pasar el ratón */
 }
 
 .attemptsList {
